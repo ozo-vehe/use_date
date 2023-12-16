@@ -1,23 +1,17 @@
-import { ref, computed } from 'vue';
+import { ref, computed } from "vue";
+
 
 const useDate = () => {
   const date = ref(new Date());
 
-  const getDay = computed(() => {
-    return date.value.getDay();
-  });
-
-  const getMonth = computed(() => {
-    return date.value.getMonth() + 1;
-  });
 
   const addDay = () => {
-    // Implement add day functionality
-    // Note: If the day after adding is greater than the number of days for that month,
-    // the date returned should be a new month date
+    // console.log(date.value)
     const newDate = new Date(date.value);
     newDate.setDate(newDate.getDate() + 1);
+    console.log(newDate)
     date.value = newDate;
+    return newDate;
   };
 
   const addMonth = (numberOfMonths) => {
@@ -28,7 +22,7 @@ const useDate = () => {
     date.value = newDate;
   };
 
-  return { date, getDay, getMonth, addDay, addMonth };
+  return { date, addDay, addMonth };
 };
 
 export default useDate;

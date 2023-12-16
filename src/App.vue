@@ -1,13 +1,13 @@
 <script setup>
 import useDate from './composable/useDate';
 
-    const { date, getDay, getMonth, addDay, addMonth } = useDate();
+    const { date, addDay, addMonth } = useDate();
 </script>
 
 <template>
   <div>
-    <p>Day: {{ date.getDay() }}</p>
-    <p>Month: {{ date.getMonth() }}</p>
+    <p>Day: {{ date.getDate() }}</p>
+    <p>Month: {{ date.getMonth() + 1 }}</p>
     <button @click="addDay">Add Day</button>
     <button @click="addMonth(1)">Add Month</button>
   </div>
